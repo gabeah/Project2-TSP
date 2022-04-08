@@ -5,6 +5,14 @@
 #pragma once
 
 #include <vector>
+#include <istream>
+#include <ostream>
+#include <iostream>
+#include <algorithm>
+#include <random>
+#include <cmath>
+#include <fstream>
+#include <assert.h>
 
 
 // Representation of an ordering of cities
@@ -29,4 +37,7 @@ class Cities {
   // The distance between any two cities is computed as the Euclidean 
   // distance on a plane between their coordinates.
   double total_path_distance(const permutation_t& ordering) const;
+
 };
+std::istream& operator>> (std::istream& iSCities, Cities& isCurCities);
+std::ostream& operator<< (std::ostream& oSCities, Cities& osCurCities);
