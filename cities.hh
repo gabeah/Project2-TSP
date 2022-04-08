@@ -38,6 +38,14 @@ class Cities {
   // distance on a plane between their coordinates.
   double total_path_distance(const permutation_t& ordering) const;
 
+  Cities();
+
+  ~Cities();
+ 
+ private:
+  std::vector<coord_t> cities_lst;
+  permutation_t cities_ord;
+  int num_perm;
 };
 std::istream& operator>> (std::istream& iSCities, Cities& isCurCities);
 std::ostream& operator<< (std::ostream& oSCities, Cities& osCurCities);
