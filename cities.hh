@@ -38,10 +38,13 @@ class Cities {
   // distance on a plane between their coordinates.
   double total_path_distance(const permutation_t& ordering) const;
 
-  Cities();
+  Cities(const std::string& filename);
 
   ~Cities();
  
+  friend std::istream& operator>> (std::istream& iSCities, Cities& isCurCities);
+  friend std::ostream& operator<< (std::ostream& oSCities, Cities& osCurCities);
+
  private:
   std::vector<coord_t> cities_lst;
   permutation_t cities_ord;
