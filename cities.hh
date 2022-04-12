@@ -10,6 +10,7 @@
 #include <iostream>
 #include <algorithm>
 #include <random>
+#include <chrono>
 #include <cmath>
 #include <fstream>
 #include <assert.h>
@@ -25,6 +26,7 @@ class Cities {
   // into the current city ordering in some container.
   using permutation_t = std::vector<unsigned int>;
 
+  using distro = std::discrete_uniform_distribution;
   // Given a permutation, return a new Cities object where the order of the
   // cities reflects the original order of this class after reordering with
   // the given ordering. So for example, the ordering { 1, 0 } simply swaps
@@ -37,6 +39,8 @@ class Cities {
   // The distance between any two cities is computed as the Euclidean 
   // distance on a plane between their coordinates.
   double total_path_distance(const permutation_t& ordering) const;
+
+  permutation_t random_permutation(unsigned len);
 
   Cities(const std::string& filename);
 
