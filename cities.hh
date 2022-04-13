@@ -26,7 +26,6 @@ class Cities {
   // into the current city ordering in some container.
   using permutation_t = std::vector<unsigned int>;
 
-  using distro = std::discrete_uniform_distribution;
   // Given a permutation, return a new Cities object where the order of the
   // cities reflects the original order of this class after reordering with
   // the given ordering. So for example, the ordering { 1, 0 } simply swaps
@@ -49,6 +48,7 @@ class Cities {
   friend std::istream& operator>> (std::istream& iSCities, Cities& isCurCities);
   friend std::ostream& operator<< (std::ostream& oSCities, Cities& osCurCities);
 
+  unsigned city_size();
  private:
   std::vector<coord_t> cities_lst;
   permutation_t cities_ord;
