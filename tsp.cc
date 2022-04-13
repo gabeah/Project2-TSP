@@ -7,25 +7,27 @@ int main(int argc, char *argv[]){
 	}
 	else {
 
-		std::ifstream is_file (argv[1], std::ifstream::in);
 
 		std::ofstream os_file ("shortest.tsv", std::ofstream::out);
 
 		Cities::Cities input_city(argv[1]);
 
+		std::ifstream is_file(filename, std::ifstream::in);
+
 		is_file >> input_city;
+
+		Cities::permutation_t cur_perm = Cities::input_city.random_permutation();
 
 		unsigned city_amt = Cities::city_size();
 
 		double best_route = input_city.total_path_distance(input_city.get_perms());
 
-		for(i = 0; i < 1000000; i++){
-			Cities::input_city.random_permutation();
-			Cities::permutation_t cur_perm = input_city.get_perms();
+		for(int i = 0; i < 1000000; i++){
+			cur_perm = input_city.random_permutation();
 			double path_temp = input_city.total_path_distance(cur_perm);
 			if(path_temp < best_route){
 				best_route = path_temp;
-				Cities::input_city.reorder(cur_perm);
+				input_city.reorder(cur_perm);
 				std::cout << i << "\t" << best_route;
 			}
 

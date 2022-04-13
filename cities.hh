@@ -41,7 +41,7 @@ class Cities {
 
   permutation_t random_permutation(unsigned len);
 
-  Cities(const std::string& filename);
+  Cities();
 
   ~Cities();
  
