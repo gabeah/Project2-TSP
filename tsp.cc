@@ -12,18 +12,18 @@ int main(int argc, char *argv[]){
 
 		Cities input_city;
 
-		std::ifstream is_file(filename, std::ifstream::in);
+		std::ifstream is_file(argv[1], std::ifstream::in);
 
 		is_file >> input_city;
 
-		Cities::permutation_t cur_perm = Cities::input_city.random_permutation();
+		unsigned city_amt = input_city.city_size();
 
-		unsigned city_amt = Cities::city_size();
+		Cities::permutation_t cur_perm = input_city.random_permutation(city_amt);
 
-		double best_route = input_city.total_path_distance(input_city.get_perms());
+		double best_route = input_city.total_path_distance(cur_perm);
 
 		for(int i = 0; i < 1000000; i++){
-			cur_perm = input_city.random_permutation();
+			cur_perm = input_city.random_permutation(city_amt);
 			double path_temp = input_city.total_path_distance(cur_perm);
 			if(path_temp < best_route){
 				best_route = path_temp;
@@ -34,4 +34,5 @@ int main(int argc, char *argv[]){
 		}
 		os_file << input_city;
 		return 0;
+	}
 }
