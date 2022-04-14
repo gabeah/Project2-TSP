@@ -28,7 +28,7 @@ int main(int argc, char *argv[]){
 			if(path_temp < best_route){
 				best_route = path_temp;
 				input_city.reorder(cur_perm);
-				std::cout << i << "\t" << best_route;
+				std::cout << i << "\t" << best_route << std::endl;
 			}
 
 		}

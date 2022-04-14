@@ -31,11 +31,15 @@ unsigned Cities::city_size() {
 
 double Cities::total_path_distance(const permutation_t& ordering) const{
 	double all_distance = 0;
+	//std::cout << "function called" << std::endl;
 	for(long unsigned int j = 0; j < cities_lst.size()-1; j++){
+	//	std::cout << j << std::endl;
+	//	std::cout << "list size = " << cities_lst.size() << std::endl;
 		coord_t c1 = cities_lst[ordering[j]];
 		coord_t c2 = cities_lst[ordering[j+1]];
 		double cur_hypot = std::hypot(c2.first - c1.first, c2.second - c1.second);
 		all_distance += cur_hypot;
+	//	std::cout << j << "second print" << std::endl;
 	}
 	coord_t c1 = cities_lst[ordering[cities_lst.size() - 1]];
 	coord_t c2 = cities_lst[ordering[0]];
@@ -54,31 +58,13 @@ double Cities::total_path_distance(const permutation_t& ordering) const{
  	return nu_city;
  }
  Cities::permutation_t Cities::random_permutation(unsigned len){
- 	/*unsigned gen_seed = std::chrono::system_clock::now().time_since_epoch().count;
- 	std::default_random_engine generator (gen_seed);
-
- 	std::uniform_int_distribution<int> distro(0,len-1);*/
-
- 	permutation_t perm_nu;
- 	if (cities_ord.size() == 0) {
- 		for (unsigned c=0; c< len-1; c++){
- 			cities_ord.push_back(c);
- 		}
- 		return cities_ord;
+	permutation_t nu_perm;
+ 	for (unsigned c=0; c< len; c++){
+ 		nu_perm.push_back(c);
  	}
 
- 	std::random_shuffle(cities_ord.begin(), cities_ord.end());
- 	/*for (unsigned d = 0; d<len-1; d++) {
- 		int r = distro(gen_seed);
-
- 		perm_nu.push_back(cities_ord[r]);
-
- 		cities_ord.erase(r);
-
- 		std::uniform_int_distribution<int> distro(0,len-d);
- 	}*/
- 	cities_ord = perm_nu;
- 	return cities_ord;
+ 	std::random_shuffle(nu_perm.begin(), nu_perm.end());
+ 	return nu_perm;
  }
 
 
