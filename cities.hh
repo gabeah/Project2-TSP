@@ -41,10 +41,10 @@ class Cities {
 
   permutation_t random_permutation(unsigned len);
 
-  Cities();
+  Cities() = default;
   //Cities(const std::string& filename);
 
-  ~Cities();
+  ~Cities() = default;
  
   friend std::istream& operator>> (std::istream& iSCities, Cities& isCurCities);
   friend std::ostream& operator<< (std::ostream& oSCities, Cities& osCurCities);
