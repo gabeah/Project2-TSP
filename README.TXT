@@ -1,3 +1,5 @@
+Daniel Kryzhanovsky and Gabe Howland
+
 1/2.With the first 2 projects, we started off by defning the x and y coordinates of each city, going through the list of the cities and getting the coordinates. The output operator then goes the list compile in the istream and initializes it within the ostream.
 3.Total path distance goes the list of the cities and initliazes the current 2 cities values to caluclate the distance of the two points. After the loop ends, it goes through the process again to find the diatcne of the last point in the list and the first point in the list.
 4. To reorder, Cities::reorder is able to take a random ordering of the list and redifine each new ordered point based on the new position they are given by the permuation through the loop. It then pushes the new order to nu_ord to get the new order of the cities.

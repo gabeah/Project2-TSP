@@ -10,7 +10,7 @@ int main(int argc, char *argv[]){
 
 		std::ofstream os_file ("shortest.tsv", std::ofstream::out);
 
-		Cities::Cities input_city(argv[1]);
+		Cities input_city(argv[1]);
 
 		std::ifstream is_file(filename, std::ifstream::in);
 

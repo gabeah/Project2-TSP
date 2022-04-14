@@ -1,4 +1,5 @@
 #include "cities.hh"
+Cities::Cities
 std::istream& operator>> (std::istream& iSCities, Cities& isCurCities){
 
 	isCurCities.cities_lst = std::vector<Cities::coord_t>();		
