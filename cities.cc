@@ -49,7 +49,7 @@ double Cities::total_path_distance(const permutation_t& ordering) const{
 }
  Cities Cities::reorder(const permutation_t& ordering) const{
  	std::vector<coord_t> nu_ord;
- 	for(long unsigned int k=0; k < ordering.size()-1; k++){
+ 	for(long unsigned int k=0; k < ordering.size(); k++){
  		coord_t temp_city = cities_lst[ordering[k]];
  		nu_ord.push_back(temp_city);
  	}
@@ -59,11 +59,16 @@ double Cities::total_path_distance(const permutation_t& ordering) const{
  }
  Cities::permutation_t Cities::random_permutation(unsigned len){
 	permutation_t nu_perm;
- 	for (unsigned c=0; c< len; c++){
+ 	
+	unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+
+	std::mt19937 rng(seed);
+	
+	for (unsigned c=0; c< len; c++){
  		nu_perm.push_back(c);
  	}
 
- 	std::random_shuffle(nu_perm.begin(), nu_perm.end());
+ 	std::shuffle(nu_perm.begin(), nu_perm.end(), rng);
  	return nu_perm;
  }
 

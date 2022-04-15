@@ -22,17 +22,18 @@ int main(int argc, char *argv[]){
 
 		double best_route = input_city.total_path_distance(cur_perm);
 
+		Cities best_city;
 		for(int i = 0; i < 1000000; i++){
 			cur_perm = input_city.random_permutation(city_amt);
 			double path_temp = input_city.total_path_distance(cur_perm);
 			if(path_temp < best_route){
 				best_route = path_temp;
-				input_city.reorder(cur_perm);
+				best_city = input_city.reorder(cur_perm);
 				std::cout << i << "\t" << best_route << std::endl;
 			}
 
 		}
-		os_file << input_city;
+		os_file << best_city;
 		return 0;
 	}
 }
